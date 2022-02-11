@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 10-Fev-2022 às 17:44
+-- Tempo de geração: 11-Fev-2022 às 19:13
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.0.13
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `registos`
+-- Banco de dados: `ki_sabor`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +27,6 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `clientesregistados`
 --
 
-DROP TABLE IF EXISTS `clientesregistados`;
 CREATE TABLE `clientesregistados` (
   `Nº de Cliente` int(11) NOT NULL,
   `Nome` varchar(50) NOT NULL,
@@ -35,14 +34,32 @@ CREATE TABLE `clientesregistados` (
   `Telemóvel` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Extraindo dados da tabela `clientesregistados`
+-- Estrutura da tabela `pratos`
 --
 
-INSERT INTO `clientesregistados` (`Nº de Cliente`, `Nome`, `Email`, `Telemóvel`) VALUES
-(1, 'Paulo Santos', 'paulosantos@gmail.com', 927837645),
-(2, 'Anabela Henriques', 'anabelahenriques@hotmail.com', 982673645),
-(3, 'António Damas', 'antoniodamas@hotmail.com', 987654321);
+CREATE TABLE `pratos` (
+  `Entradas` varchar(55) NOT NULL,
+  `Saladas` varchar(55) NOT NULL,
+  `Pratos` varchar(55) NOT NULL,
+  `Preco` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `reservas`
+--
+
+CREATE TABLE `reservas` (
+  `ID` int(11) NOT NULL,
+  `Nome` varchar(35) NOT NULL,
+  `Data` date NOT NULL,
+  `Refeicao` varchar(6) NOT NULL,
+  `NumeroDePessoas` tinyint(4) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tabelas despejadas
@@ -56,6 +73,12 @@ ALTER TABLE `clientesregistados`
   ADD UNIQUE KEY `Email` (`Email`);
 
 --
+-- Índices para tabela `reservas`
+--
+ALTER TABLE `reservas`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -64,6 +87,12 @@ ALTER TABLE `clientesregistados`
 --
 ALTER TABLE `clientesregistados`
   MODIFY `Nº de Cliente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT de tabela `reservas`
+--
+ALTER TABLE `reservas`
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
