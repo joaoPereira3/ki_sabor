@@ -40,9 +40,9 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="#">Clientes Registados</a></li>
-          <li><a class="nav-link scrollto" href="reservas.html">Reservas</a></li>
-          <li><a class="nav-link scrollto" href="pratos.html">Pratos</a></li>
+          <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
+          <li><a class="nav-link scrollto" href="reservas.php">Reservas</a></li>
+          <li><a class="nav-link scrollto" href="pratos.php">Pratos</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -69,14 +69,14 @@
   <?php
     include("conexao.php");
 
-    query = "SELECT * FROM clientes_registados";
-    result = mysqli_query(conexao, query);
+    $query = "SELECT * FROM clientes";
+    $result = mysqli_query($conexao, $query);
 
 
-    if(mysqli_num_rows(result)>0){
+    if(mysqli_num_rows($result)>0){
         echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Telemóvel</th></tr>" ;
-        while(fila = mysqli_fetch_assoc(result)){
-            echo "<tr><td>" . fila['id']. "</td><td>" . fila['nome']. "</td><td>" . fila['e-mail']. "</td><td>" . fila['telemóvel'] . "</td></tr>";
+        while($fila = mysqli_fetch_assoc($result)){
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['email']. "</td><td>" . $fila['telemovel'] . "</td></tr>";
             echo "<br>";
         } 
         echo"</table>";
@@ -86,8 +86,8 @@
     }
 
    ?>
-
-     <!--  <table style="width:50%">
+<!-- 
+      <table style="width:50%">
           <tr>
             <th>Nº de Cliente</th>
             <th>Nome</th>
