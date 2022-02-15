@@ -69,14 +69,14 @@
   <?php
     include("conexao.php");
 
-    $query = "SELECT * FROM clientes_registados";
-    $result = mysqli_query($conexao, $query);
+    query = "SELECT * FROM clientes_registados";
+    result = mysqli_query(conexao, query);
 
 
-    if(mysqli_num_rows($result)>0){
+    if(mysqli_num_rows(result)>0){
         echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Telemóvel</th></tr>" ;
-        while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['e-mail']. "</td><td>" . $fila['telemóvel'] . "</td></tr>";
+        while(fila = mysqli_fetch_assoc(result)){
+            echo "<tr><td>" . fila['id']. "</td><td>" . fila['nome']. "</td><td>" . fila['e-mail']. "</td><td>" . fila['telemóvel'] . "</td></tr>";
             echo "<br>";
         } 
         echo"</table>";
