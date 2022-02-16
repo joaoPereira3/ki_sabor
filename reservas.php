@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Clientes Registados</title>
+  <title>Reservas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -40,9 +40,9 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="#">Clientes Registados</a></li>
-          <li><a class="nav-link scrollto" href="reservas.html">Reservas</a></li>
-          <li><a class="nav-link scrollto" href="pratos.html">Pratos</a></li>
+          <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
+          <li><a class="nav-link scrollto" href="#">Reservas</a></li>
+          <li><a class="nav-link scrollto" href="pratos.php">Pratos</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -65,18 +65,19 @@
       </div>
     </section>
 
-  </main><!-- End #main -->
+  </main>
+  <!-- End #main -->
   <?php
     include("conexao.php");
 
-    $query = "SELECT * FROM clientes";
+    $query = "SELECT * FROM reservas";
     $result = mysqli_query($conexao, $query);
 
 
     if(mysqli_num_rows($result)>0){
-        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Telemóvel</th></tr>" ;
+        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Data da reserva</th><th>Refeição</th><th>Lugares</th><th>Id cliente</th></tr>" ;
         while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['email']. "</td><td>" . $fila['telemovel'] . "</td></tr>";
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['data']. "</td><td>" . $fila['refeicao']. "</td><td>" . $fila['lugares']. "</td><td>" . $fila['cliente_id']."</td></tr>";
             echo "<br>";
         } 
         echo"</table>";
@@ -84,37 +85,37 @@
     else{
         echo "A tabela ainda não tem qualquer resultado";
     }
-
-   ?>
-
-     <!--  <table style="width:50%">
+   ?> 
+  <!-- <table style="width:50%">
           <tr>
-            <th>Nº de Cliente</th>
+            <th>ID</th>
             <th>Nome</th>
-            <th>E-mail</th>
-            <th>Telemóvel</th><br>
+            <th>Data</th>
+            <th>Refeição</th>
+            <th>Nº de pessoas</th><br>
           </tr>
           <tr>
             <td>1</td>
             <td>Paulo Santos</td>
-            <td>paulosantos@hotmail.com</td>
-            <td>927837645</td><br>
+            <td>11/02/2022</td>
+            <td>Almoço</td>
+            <td>3</td><br>
           </tr>
           <tr>
             <td>2</td>
             <td>Anabela Henriques</td>
-            <td>anabelahenriques@hotmail.com</td>
-            <td>927837634</td>
+            <td>14/02/2022</td>
+            <td>Almoço</td>
+            <td>2</td>
           </tr>
           <tr>
             <td>3</td>
             <td>António Damas</td>
-            <td>antoniodamas@hotmail.com</td>
-            <td>927837632</td>
+            <td>28/02/2022</td>
+            <td>Jantar</td>
+            <td>4</td>
           </tr>
       </table> -->
-
-
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">

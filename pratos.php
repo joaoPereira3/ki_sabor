@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Clientes Registados</title>
+  <title>Pratos</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -40,9 +40,9 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto" href="#">Clientes Registados</a></li>
-          <li><a class="nav-link scrollto" href="reservas.html">Reservas</a></li>
-          <li><a class="nav-link scrollto" href="pratos.html">Pratos</a></li>
+          <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
+          <li><a class="nav-link scrollto" href="reservas.php">Reservas</a></li>
+          <li><a class="nav-link scrollto" href="#">Pratos</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -55,8 +55,7 @@
   </header><!-- End Header -->
 
   <main id="main">
-
-
+    
     <section class="inner-page">
       <div class="container">
         <p>
@@ -66,17 +65,18 @@
     </section>
 
   </main><!-- End #main -->
+
   <?php
     include("conexao.php");
 
-    $query = "SELECT * FROM clientes";
+    $query = "SELECT * FROM pratos";
     $result = mysqli_query($conexao, $query);
 
 
     if(mysqli_num_rows($result)>0){
-        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Telemóvel</th></tr>" ;
+        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Imagem</th><th>Categoria</th></tr>" ;
         while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['email']. "</td><td>" . $fila['telemovel'] . "</td></tr>";
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['preco']. "</td><td>" . $fila['imagem']."</td></tr>";
             echo "<br>";
         } 
         echo"</table>";
@@ -86,34 +86,29 @@
     }
 
    ?>
-
-     <!--  <table style="width:50%">
-          <tr>
-            <th>Nº de Cliente</th>
-            <th>Nome</th>
-            <th>E-mail</th>
-            <th>Telemóvel</th><br>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Paulo Santos</td>
-            <td>paulosantos@hotmail.com</td>
-            <td>927837645</td><br>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Anabela Henriques</td>
-            <td>anabelahenriques@hotmail.com</td>
-            <td>927837634</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>António Damas</td>
-            <td>antoniodamas@hotmail.com</td>
-            <td>927837632</td>
-          </tr>
-      </table> -->
-
+    <!-- <table style="width:50%">
+            <tr>
+              <th>Entradas</th>
+              <th>Saladas</th>
+              <th>Especialidades</th><br>
+            </tr>
+            <tr>
+              <td>Sopa de Lagosta (5.95€)</td>
+              <td>Seleções de César (8.95€)</td>
+              <td>Barril de Pão (6.95€)</td><br>
+            </tr>
+            <tr>
+              <td>Palito de Mussarela (4.95€)</td>
+              <td>Salada grega (9.95€)</td>
+              <td>Rolo de Lagosta (12.95€)</td>
+            </tr>
+            <tr>
+              <td>Bolo de caranguejo (7.95€)</td>
+              <td>Salada de espinafre (9.95€)</td>
+              <td>Toscana Grelhada (9.95€)</td>
+            </tr>
+        </table>
+ -->
 
   <!-- ======= Footer ======= -->
   <footer id="footer">
