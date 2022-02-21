@@ -24,18 +24,13 @@
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
   <!-- ======= Cabeçalho ======= -->
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-
       <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
-      
-
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -49,17 +44,15 @@
         <input type="text" placeholder="Utilizador">
         <input type="password" placeholder="Password">
         <a href="admin.html" type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</a>
-
     </div>
-  </header><!-- Fim Cabeçalho -->
-
+  </header>
+  <!-- Fim Cabeçalho -->
   <!-- ======= Secção Apresentação ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
       <div class="row">
         <div class="col-lg-8">
           <h1>Bem-vindo ao <span>Ki-Sabor</span></h1>
-
           <div class="btns">
             <a href="#menu" class="btn-menu animated fadeInUp scrollto">Menu</a>
             <a href="#book-a-table" class="btn-book animated fadeInUp scrollto">Registe-se</a>
@@ -67,14 +60,12 @@
         </div>
       </div>
     </div>
-  </section><!-- Fim da Apresentação -->
-
+  </section>
+  <!-- Fim da Apresentação -->
   <main id="main">
-
     <!-- ======= Secção Sobre Nós ======= -->
     <section id="about" class="about">
       <div class="container" data-aos="fade-up">
-
         <div class="row">
           <div class="col-lg-6 order-1 order-lg-2" data-aos="zoom-in" data-aos-delay="100">
             <div class="about-img">
@@ -208,24 +199,22 @@
               Carne de lagosta rechonchuda, maionese e alface crocante em um pão volumoso torrado
             </div>
           </div>
-
         </div>
-
       </div>
-    </section><!-- Fim Secção Menu -->
+    </section>
+    <!-- Fim Secção Menu -->
+
     <!-- ======= Registo ======= -->
     <section id="book-a-table" class="book-a-table">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Registo</h2>
           <p>Insira os seus dados</p>
         </div>
-
         <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Nome" data-rule="minlen:4" required>
+              <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
@@ -233,20 +222,19 @@
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Telemóvel" data-rule="minlen:4" required>
+              <input type="tel" class="form-control" name="phone" id="telemovel" placeholder="Telemóvel" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="date" name="date" class="form-control" id="date" min="2021-02-01" max="2100-04-30" placeholder="data" required>
+              <input type="date" name="date" class="form-control" id="calendario" min="2021-02-01" max="2100-04-30" placeholder="data" required>
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-
-              <input type="text" class="form-control" name="time" id="time" placeholder="Almoço/Jantar" data-rule="" required>
+              <input type="text" class="form-control" name="time" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="people" placeholder="Numero Pessoas" data-rule="minlen:1" required>
+              <input type="number" class="form-control" name="people" id="pessoas" placeholder="Numero Pessoas" data-rule="minlen:1" required>
               <div class="validate"></div>
             </div>
           <div class="mb-3">
@@ -256,30 +244,40 @@
           </div>
           <div class="text-center"><button type="submit">Registar</button></div>
         </form>
-
       </div>
-    </section><!-- Fim Secção de Registo -->
+    </section>
+
+    <!-- Secção Adicionada , a ser confirmada depois -->
+      <?php
+         if(isset($_POST['nome']) and isset($_POST['email']) and isset($_POST['telemovel'])and isset($_POST['calendario']and isset($_POST['refeicao']and isset($_POST['pessoas'])){
+           $nome = $_POST['nome'];
+           $email = $_POST['email'];
+           $telemovel = $_POST['telemovel'];
+           $data = $_POST['calendario'];
+           $refeicao = $_POST['refeicao'];
+           $pessoas = $_POST['pessoas'];
+            # A confirmar com o Fábio
+           $query = "INSERT INTO registos (nome, email, telemovel, calendario, refeicao, pessoas ) VALUES ('$nome', '$email', '$telemovel', '$data', '$refeicao', '$pessoas')";
+        }
+      ?>
+    <!-- Fim Secção de Registo -->
+
     <!-- ======= Secção Chefe ======= -->
     <section id="chefs" class="chefs">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Chefe</h2>
           <p>O nosso Chefe</p>
-          
         </div>
-
-        <div class="row">
-          
+        <div class="row">  
           <div class="col-lg-4 col-md-6">
             <div class="member" data-aos="zoom-in" data-aos-delay="100">
               <img src="assets/img/chefs/gordon.jpg" class="img-fluid" alt="">
-               
               <div class="member-info">
-                <div class="member-info-content">
-                  <h4>Gordon Ramsay</h4>
-                  <span>Master Chef</span>
-                </div>
+                  <div class="member-info-content">
+                    <h4>Gordon Ramsay</h4>
+                    <span>Master Chef</span>
+                  </div>
                 <div class="social">
                   <a href=""><i class="bi bi-twitter"></i></a>
                   <a href=""><i class="bi bi-facebook"></i></a>
@@ -293,26 +291,20 @@
                 <h5>Gordon James Ramsay é um chef britânico, é uma personalidade de televisão e escritor. <br><br>Seu grupo global de restaurantes, Gordon Ramsay Restaurants, foi fundado em 1997 e foi premiado com 16 estrelas Michelin no total.<br><br> Atualmente detém um total de sete restaurantes.</h5>
           </div>
         </div>
-        
       </div>
     </section><!-- Fim Secção Chefe -->
-
     <!-- ======= Secção dos Contactos ======= -->
     <section id="contact" class="contact">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Contactos</h2>
           <p>Ligue-nos</p>
         </div>
       </div>
-
       <div class="container" data-aos="fade-up">
         <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3112.881163010645!2d-9.148090984654841!3d38.72053727959827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd193382100b6609%3A0xc8fdf6ca0edb5fc7!2sAv.%20da%20Liberdade%2C%201250-096%20Lisboa!5e0!3m2!1sen!2spt!4v1643744106788!5m2!1sen!2spt" allowfullscreen></iframe>
       </div>
-
       <div class="container" data-aos="fade-up">
-
         <div class="row mt-5">
 
           <div class="col-lg-4">
@@ -345,27 +337,20 @@
                 <p>924208448</p>
                 <p>967710105</p>
               </div>
-
             </div>
-
           </div>
 
           <div class="col-lg-8 mt-5 mt-lg-0">
           </div>
-
         </div>
-
       </div>
     </section><!-- Fim Secção dos Contactos -->
-
   </main><!-- Fim da Secção Main -->
-
   <!-- ======= Rodapé ======= -->
   <footer id="footer">
     <div class="footer-top">
       <div class="container">
         <div class="row">
-
           <div class="col-lg-3 col-md-6">
             <div class="footer-info">
               <h2>Ki-Sabor</h2>
@@ -386,7 +371,6 @@
               </div>
             </div>
           </div>
-
     <div class="container">
       <div class="copyright">
         &copy; Copyright <strong><span>Ki-Sabor</span></strong>. All Rights Reserved
@@ -395,8 +379,8 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-  </footer><!-- Fim Rodapé -->
-
+  </footer>
+  <!-- Fim Rodapé -->
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
