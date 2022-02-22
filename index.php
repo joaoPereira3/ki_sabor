@@ -28,13 +28,9 @@
 </head>
 <body>
   <!-- ======= Cabeçalho ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
+  <header id="header" class="fixed-top d-flex align-items-center">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
-<<<<<<< HEAD
       <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
-=======
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -45,21 +41,13 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- Barra de Navegação -->
-<<<<<<< HEAD
-      <?php
-            session_start();
-            $user = "u1";
-            $password = "p1";
-            if (($_POST['utilizador'] == $user ) && ($_POST['password'] == $password)){
-              header('Location: '.$uri.'/admin.php');
-            }
-            // else echo "you have entered the wrong credentials";
-            ?>
-      <form>
-        <input type="text" id="utlizador" placeholder="Utilizador" required="true">
-        <input type="password" id="password" placeholder="Password" required="true">
-        <button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</button>
-        
+      
+      <form method="POST" class="d-flex align-items-center">
+        <input type="text" name="utilizador" placeholder="Utilizador" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <div>
+          <button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</button>
+        </div>
           <!-- $usr = "admin";
           $psw = "password";
           $utilizador=$_POST["utilizador"];
@@ -70,11 +58,25 @@
           else
             echo "Username ou pass errada"; -->
       </form>
-=======
-        <input type="text" placeholder="Utilizador">
-        <input type="password" placeholder="Password">
-        <a href="admin.html" type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</a>
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
+      
+      <?php
+            
+            $user_introduzido = $_POST["utilizador"] ?? "";
+            $password_introduzida = $_POST["password"] ?? "";
+    
+            $user = "admin";
+            $password = "admin";
+    
+            if($user_introduzido != "" && $password_introduzida != ""){
+            
+                if($user_introduzido == $user && $password_introduzida == $password){
+                    header('Location: '.$uri.'/ki_sabor/admin.php');
+                }
+                else{
+                    echo "<script>alert('Dados incorretos!');</script>";
+                }
+            }
+       ?>
     </div>
   </header>
   <!-- Fim Cabeçalho -->
@@ -131,126 +133,81 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="menu-flters">
               <li data-filter="*" class="filter-active">Todos</li>
-              <li data-filter=".filter-starters">Entradas</li>
               <li data-filter=".filter-salads">Saladas</li>
+              <li data-filter=".filter-starters">Entradas</li>
               <li data-filter=".filter-specialty">Especialidades</li>
             </ul>
           </div>
         </div>
 
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/lobster-bisque.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Sopa de Lagosta</a><span>5.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/bread-barrel.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Barril de Pão</a><span>6.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/cake.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Bolo de caranguejo</a><span>7.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Delicioso bolo de caranguejo servido em pão torrado com alface e molho tártaro
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/caesar.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Seleções de César</a><span>8.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/tuscan-grilled.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Toscana Grelhada</a><span>9.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Frango grelhado com provolone, coração de alcachofra e pesto vermelho assado
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-starters">
-            <img src="assets/img/menu/mozzarella.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Palito de Mussarela</a><span>4.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Lorem, deren, trataro, filede, nerada
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/greek-salad.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Salada grega</a><span>9.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Espinafre fresco, alface romana, tomate e azeitonas gregas
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-salads">
-            <img src="assets/img/menu/spinach-salad.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Salada de espinafre</a><span>9.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Espinafre fresco com cogumelos, ovo cozido e vinagrete de bacon quente
-            </div>
-          </div>
-
-          <div class="col-lg-6 menu-item filter-specialty">
-            <img src="assets/img/menu/lobster-roll.jpg" class="menu-img" alt="">
-            <div class="menu-content">
-              <a href="#">Rolo de Lagosta</a><span>12.95€</span>
-            </div>
-            <div class="menu-ingredients">
-              Carne de lagosta rechonchuda, maionese e alface crocante em um pão volumoso torrado
-            </div>
-          </div>
+          <?php
+            include("conexao.php");
+            $query = "SELECT * FROM `pratos`";
+            $resultado = mysqli_query($conexao, $query);
+            if (mysqli_num_rows($resultado) > 0){
+              while ($row = mysqli_fetch_assoc($resultado)){
+                if ($row['cat_id'] == 1){
+                  echo ('
+                      <div class="col-lg-6 menu-item filter-salads">
+                          <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
+                          '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                          <div class="menu-content">
+                              <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
+                          </div><br>
+                          <div class="menu-ingredients">
+                              Salada
+          
+                          </div>
+                      </div>
+                  ');
+                } else if($row['cat_id'] == 2) {
+                  echo ('
+                    <div class="col-lg-6 menu-item filter-starters">
+                        <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
+                        '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                        <div class="menu-content">
+                            <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
+                        </div><br>
+                        <div class="menu-ingredients">
+                            Entrada
+        
+                        </div>
+                    </div>
+                 ');
+                } else if($row['cat_id'] == 3) {
+                  echo ('
+                    <div class="col-lg-6 menu-item filter-specialty">
+                        <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
+                        '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                        <div class="menu-content">
+                            <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
+                        </div><br>
+                        <div class="menu-ingredients">
+                            Especialidade
+        
+                        </div>
+                    </div>
+                 ');
+                }
+              }
+            } else {
+              echo "Sem resultados.";
+            }
+          ?>
         </div>
       </div>
     </section>
     <!-- Fim Secção Menu -->
 
     <!-- ======= Registo ======= -->
-<<<<<<< HEAD
     <section id="book-a-table">
-=======
-    <section id="book-a-table" class="book-a-table">
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Registo</h2>
           <p>Insira os seus dados</p>
         </div>
-<<<<<<< HEAD
         <form method="post">
-=======
-        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" data-rule="minlen:4" required>
@@ -264,50 +221,35 @@
               <input type="tel" class="form-control" name="phone" id="telemovel" placeholder="Telemóvel" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
-<<<<<<< HEAD
-            <!-- <div class="col-lg-4 col-md-6 form-group mt-3">
-=======
-            <div class="col-lg-4 col-md-6 form-group mt-3">
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
-              <input type="date" name="date" class="form-control" id="calendario" min="2021-02-01" max="2100-04-30" placeholder="data" required>
-              <div class="validate"></div>
+            <br><br>
+            <div class="text-center">
+              <button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex" id="botao">Registar</button>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-<<<<<<< HEAD
-              <input type="text" class="form-control" name="refeicao" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="pessoas" id="pessoas" placeholder="Numero Pessoas" data-rule="minlen:1" required>
-              <div class="validate"></div>
-            </div> -->
-          <!-- <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Registo feito. Obrigado pela preferência!</div>
-          </div> -->
-          <div class="text-center"><button type="submit">Registar</button></div>
-          <br>
+        <br>
         </form>
       </div>
     </section>
+<!-- ======= Código PHP Registo ======= -->
     <?php
-
        include("conexao.php");
          if(isset($_POST['name']) and isset($_POST['email']) and isset($_POST['phone'])){
            $nome = $_POST['name'];
            $email = $_POST['email'];
            $telemovel = $_POST['phone'];
-          //  $data = $_POST['date'];
-          //  $refeicao = $_POST['refeicao'];
-          //  $pessoas = $_POST['pessoas'];
-          
            $query = "INSERT INTO clientes (nome, email, telemovel)
            VALUES ('$nome', '$email', '$telemovel')";
-           mysqli_query($conexao, $query);
-        }
+           if(mysqli_query($conexao, $query)){
+           echo "<script>alert('Registo feito com sucesso!');</script>";
+            }
+          else {
+          echo "<script>alert('Registo inválido!');</script>";
+          }
+         }  
+  
       ?>
        <!-- Fim Secção de Registo -->
+
+
     <!-- ======= Reservas ======= -->
     <section id="book-a-table">
       <div class="container" data-aos="fade-up">
@@ -317,23 +259,17 @@
         </div>
         <form method="post">
           <div class="row">
+           
             <div class="col-lg-4 col-md-6 form-group">
-              <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" data-rule="minlen:4" required>
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
               <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" required>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="telemovel" placeholder="Telemóvel" data-rule="minlen:4" required>
-              <div class="validate"></div>
-            </div>
-             <div class="col-lg-4 col-md-6 form-group mt-3">
+            
+             <div class="col-lg-4 col-md-6 form-group">
               <input type="date" name="date" class="form-control" id="calendario" min="2021-02-01" max="2100-04-30" placeholder="data" required>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
+            <div class="col-lg-4 col-md-6 form-group mt-md-0">
               <input type="text" class="form-control" name="refeicao" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
               <div class="validate"></div>
             </div>
@@ -341,46 +277,41 @@
               <input type="number" class="form-control" name="pessoas" id="pessoas" placeholder="Numero de Pessoas" data-rule="minlen:1" required>
               <div class="validate"></div>
             </div>
-          <br>
-          <div class="text-center"><button type="submit">Reservar</button></div>
+          <br><br><br>
+        
+          <div class="text-center"><button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex" id="botao">Reservar</button></div>
 
         </form>
       </div>
     </section>
-    <!-- Fim Secção de Reservas -->
-=======
-              <input type="text" class="form-control" name="time" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
-              <div class="validate"></div>
-            </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
-              <input type="number" class="form-control" name="people" id="pessoas" placeholder="Numero Pessoas" data-rule="minlen:1" required>
-              <div class="validate"></div>
-            </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Registo feito. Obrigado pela preferência!</div>
-          </div>
-          <div class="text-center"><button type="submit">Registar</button></div>
-        </form>
-      </div>
-    </section>
+    <!-- ======= Código PHP Reservas ======= -->
+    <?php
 
-    <!-- Secção Adicionada , a ser confirmada depois -->
-      <?php
-         if(isset($_POST['nome']) and isset($_POST['email']) and isset($_POST['telemovel'])and isset($_POST['calendario']and isset($_POST['refeicao']and isset($_POST['pessoas'])){
-           $nome = $_POST['nome'];
-           $email = $_POST['email'];
-           $telemovel = $_POST['telemovel'];
-           $data = $_POST['calendario'];
-           $refeicao = $_POST['refeicao'];
-           $pessoas = $_POST['pessoas'];
-            # A confirmar com o Fábio
-           $query = "INSERT INTO registos (nome, email, telemovel, calendario, refeicao, pessoas ) VALUES ('$nome', '$email', '$telemovel', '$data', '$refeicao', '$pessoas')";
-        }
+      include("conexao.php");
+          if(isset($_POST["email"]) && isset($_POST["date"]) && isset($_POST["refeicao"]) && isset($_POST["pessoas"])){
+            $email = $_POST['email'];
+            $data = $_POST['date'];
+            $refeicao = $_POST['refeicao'];
+            $pessoas = $_POST['pessoas'];
+            $query_confirm = "SELECT * FROM clientes WHERE email='$email'";
+            $resultado = mysqli_query($conexao,$query_confirm);
+
+              if(mysqli_num_rows($resultado)>0){
+                $cliente_row = mysqli_fetch_assoc($resultado);
+                $id = $cliente_row['id'];
+                $query = "INSERT INTO reservas (data_ref, refeicao, lugares, cliente_id) VALUES ('$data', '$refeicao', '$pessoas', '$id')";
+
+                  if(mysqli_query($conexao,$query)){
+                      echo "<script>alert('A sua reserva para a data $data foi efetuada com sucesso!');</script>";
+                  }
+                    else{
+                          echo "<script>alert('Registe-se primeiro!');</script>";
+                        }
+              }
+          }    
+
       ?>
-    <!-- Fim Secção de Registo -->
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
+    <!-- Fim Secção de Reservas -->
 
     <!-- ======= Secção Chefe ======= -->
     <section id="chefs" class="chefs">

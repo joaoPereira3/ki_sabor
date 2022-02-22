@@ -33,8 +33,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
-<<<<<<< HEAD
+      <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -50,17 +49,6 @@
         <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
         <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
-=======
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
-            <li><a class="nav-link scrollto" href="#">Reservas</a></li>
-            <li><a class="nav-link scrollto" href="pratos.php">Pratos</a></li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- Fim Barra de Navegação -->
-      <a href="index.html" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
     </div>
   </header><!-- Fim Cabeçalho -->
 
@@ -83,7 +71,7 @@
     if(mysqli_num_rows($result)>0){
         echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Data da reserva</th><th>Refeição</th><th>Lugares</th><th>Id cliente</th></tr>" ;
         while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['data']. "</td><td>" . $fila['refeicao']. "</td><td>" . $fila['lugares']. "</td><td>" . $fila['cliente_id']."</td></tr>";
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['data_ref']. "</td><td>" . $fila['refeicao']. "</td><td>" . $fila['lugares']. "</td><td>" . $fila['cliente_id']."</td></tr>";
             echo "<br>";
         } 
         echo"</table>";

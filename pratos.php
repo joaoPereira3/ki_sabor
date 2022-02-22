@@ -34,8 +34,7 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
-<<<<<<< HEAD
+      <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
       
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -51,17 +50,6 @@
         <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
         <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
-=======
-        <nav id="navbar" class="navbar order-last order-lg-0">
-          <ul>
-            <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
-            <li><a class="nav-link scrollto" href="reservas.php">Reservas</a></li>
-            <li><a class="nav-link scrollto" href="#">Pratos</a></li>
-          </ul>
-          <i class="bi bi-list mobile-nav-toggle"></i>
-        </nav><!-- Fim Barra de Navegação -->
-      <a href="index.html" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
->>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
     </div>
   </header><!-- Fim Cabeçalho -->
 
