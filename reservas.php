@@ -49,7 +49,7 @@
         <!-- <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
         <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
-        <a href="index.html" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
+        <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
     </div>
   </header><!-- End Header -->

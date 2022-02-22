@@ -49,7 +49,7 @@
         <!-- <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
         <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
-        <a href="index.html" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
+        <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
     </div>
   </header><!-- End Header -->
@@ -69,14 +69,18 @@
   <?php
     include("conexao.php");
 
-    $query = "SELECT * FROM pratos";
+    // $query = "SELECT * FROM pratos";
+    $query = "SELECT p.id id, p.nome nome, p.preco preco, p.imagem imagem, c.nome categoria 
+    FROM pratos AS p, categorias AS c 
+    WHERE p.cat_id=c.id";
+
     $result = mysqli_query($conexao, $query);
 
 
     if(mysqli_num_rows($result)>0){
         echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Imagem</th><th>Categoria</th></tr>" ;
         while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['preco']. "</td><td>" . $fila['imagem']."</td></tr>";
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['nome']. "</td><td>" . $fila['preco']. "</td><td>" . $fila['imagem']. "</td><td>" . $fila['categoria']. "</td></tr>";
             echo "<br>";
         } 
         echo"</table>";
