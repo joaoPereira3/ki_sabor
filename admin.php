@@ -29,15 +29,17 @@
 </head>
 
 <body>
-
-
    <!-- ======= Header ======= -->
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+<<<<<<< HEAD
 
       <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
       
 
+=======
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="#">Clientes Registados</a></li>
@@ -46,17 +48,19 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
+<<<<<<< HEAD
         <!-- <input type="text" placeholder="Username">
         <input type="password" placeholder="Password">
         <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
         <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
+=======
+        <a href="index.html" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
     </div>
   </header><!-- End Header -->
 
   <main id="main">
-
-
     <section class="inner-page">
       <div class="container">
         <p>
@@ -65,13 +69,13 @@
       </div>
     </section>
 
-  </main><!-- End #main -->
+  </main><!-- Fim Secção Main -->
+  <!-- ======= Ficheiro PHP ======= -->
   <?php
     include("conexao.php");
 
     $query = "SELECT * FROM clientes";
     $result = mysqli_query($conexao, $query);
-
 
     if(mysqli_num_rows($result)>0){
         echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>E-mail</th><th>Telemóvel</th></tr>" ;
@@ -84,9 +88,9 @@
     else{
         echo "A tabela ainda não tem qualquer resultado";
     }
-
    ?>
-
+   <!-- Fim Ficheiro PHP -->
+   <!-- Esboço de Tabela previamente usada -->
      <!--  <table style="width:50%">
           <tr>
             <th>Nº de Cliente</th>
@@ -113,9 +117,7 @@
             <td>927837632</td>
           </tr>
       </table> -->
-
-
-  <!-- ======= Footer ======= -->
+  <!-- ======= Rodapé ======= -->
   <footer id="footer">
     <div class="container">
       <div class="copyright">
@@ -125,12 +127,11 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-  </footer><!-- End Footer -->
-
+  </footer><!-- Fim Rodapé -->
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
+  <!-- Ficheiros JS -->
   <script src="assets/vendor/aos/aos.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
@@ -138,9 +139,8 @@
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
 
-  <!-- Template Main JS File -->
+  <!-- Ficheiro Principal JS -->
   <script src="assets/js/main.js"></script>
 
 </body>
-
 </html>

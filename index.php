@@ -30,7 +30,11 @@
   <!-- ======= Cabeçalho ======= -->
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+<<<<<<< HEAD
       <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
+=======
+      <h1 class="logo me-auto me-lg-0"><a href="index.html">Ki-Sabor</a></h1>
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
@@ -41,6 +45,7 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- Barra de Navegação -->
+<<<<<<< HEAD
       <?php
             session_start();
             $user = "u1";
@@ -65,6 +70,11 @@
           else
             echo "Username ou pass errada"; -->
       </form>
+=======
+        <input type="text" placeholder="Utilizador">
+        <input type="password" placeholder="Password">
+        <a href="admin.html" type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</a>
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
     </div>
   </header>
   <!-- Fim Cabeçalho -->
@@ -226,13 +236,21 @@
     <!-- Fim Secção Menu -->
 
     <!-- ======= Registo ======= -->
+<<<<<<< HEAD
     <section id="book-a-table">
+=======
+    <section id="book-a-table" class="book-a-table">
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
       <div class="container" data-aos="fade-up">
         <div class="section-title">
           <h2>Registo</h2>
           <p>Insira os seus dados</p>
         </div>
+<<<<<<< HEAD
         <form method="post">
+=======
+        <form action="forms/book-a-table.php" method="post" role="form" class="php-email-form" data-aos="fade-up" data-aos-delay="100">
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
           <div class="row">
             <div class="col-lg-4 col-md-6 form-group">
               <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" data-rule="minlen:4" required>
@@ -246,11 +264,16 @@
               <input type="tel" class="form-control" name="phone" id="telemovel" placeholder="Telemóvel" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
+<<<<<<< HEAD
             <!-- <div class="col-lg-4 col-md-6 form-group mt-3">
+=======
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
               <input type="date" name="date" class="form-control" id="calendario" min="2021-02-01" max="2100-04-30" placeholder="data" required>
               <div class="validate"></div>
             </div>
             <div class="col-lg-4 col-md-6 form-group mt-3">
+<<<<<<< HEAD
               <input type="text" class="form-control" name="refeicao" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
               <div class="validate"></div>
             </div>
@@ -325,6 +348,39 @@
       </div>
     </section>
     <!-- Fim Secção de Reservas -->
+=======
+              <input type="text" class="form-control" name="time" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
+              <div class="validate"></div>
+            </div>
+            <div class="col-lg-4 col-md-6 form-group mt-3">
+              <input type="number" class="form-control" name="people" id="pessoas" placeholder="Numero Pessoas" data-rule="minlen:1" required>
+              <div class="validate"></div>
+            </div>
+          <div class="mb-3">
+            <div class="loading">Loading</div>
+            <div class="error-message"></div>
+            <div class="sent-message">Registo feito. Obrigado pela preferência!</div>
+          </div>
+          <div class="text-center"><button type="submit">Registar</button></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Secção Adicionada , a ser confirmada depois -->
+      <?php
+         if(isset($_POST['nome']) and isset($_POST['email']) and isset($_POST['telemovel'])and isset($_POST['calendario']and isset($_POST['refeicao']and isset($_POST['pessoas'])){
+           $nome = $_POST['nome'];
+           $email = $_POST['email'];
+           $telemovel = $_POST['telemovel'];
+           $data = $_POST['calendario'];
+           $refeicao = $_POST['refeicao'];
+           $pessoas = $_POST['pessoas'];
+            # A confirmar com o Fábio
+           $query = "INSERT INTO registos (nome, email, telemovel, calendario, refeicao, pessoas ) VALUES ('$nome', '$email', '$telemovel', '$data', '$refeicao', '$pessoas')";
+        }
+      ?>
+    <!-- Fim Secção de Registo -->
+>>>>>>> 277949674a5fac8229a36f0a419317e7e99161bf
 
     <!-- ======= Secção Chefe ======= -->
     <section id="chefs" class="chefs">
