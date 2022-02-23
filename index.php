@@ -43,20 +43,11 @@
       </nav><!-- Barra de Navegação -->
       
       <form method="POST" class="d-flex align-items-center">
-        <input type="text" name="utilizador" placeholder="Utilizador" required>
+        <input style="margin-right: 10px" type="text" name="utilizador" placeholder="Utilizador" required>
         <input type="password" name="password" placeholder="Password" required>
         <div>
           <button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex">Admin</button>
         </div>
-          <!-- $usr = "admin";
-          $psw = "password";
-          $utilizador=$_POST["utilizador"];
-          $pass=$_POST["password"];
-          if($utilizador=="staff" && $pass=="12345"){
-          header('Location: '.$uri.'/admin.php');
-          }
-          else
-            echo "Username ou pass errada"; -->
       </form>
       
       <?php
@@ -151,7 +142,7 @@
                   echo ('
                       <div class="col-lg-6 menu-item filter-salads">
                           <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
-                          '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                          '" alt="img" style="object-fit:cover; border-radius: 50%; width:15%; height:15%;">
                           <div class="menu-content">
                               <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
                           </div><br>
@@ -165,7 +156,7 @@
                   echo ('
                     <div class="col-lg-6 menu-item filter-starters">
                         <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
-                        '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                        '" alt="img" style="object-fit:cover; border-radius: 50%; width:15%; height:15%;">
                         <div class="menu-content">
                             <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
                         </div><br>
@@ -179,7 +170,7 @@
                   echo ('
                     <div class="col-lg-6 menu-item filter-specialty">
                         <img class="media-object" src="data:image/jpeg;base64, ' . base64_encode($row['imagem']) .
-                        '" alt="img" style="object-fit:cover; width:110px;height:110px;">
+                        '" alt="img" style="object-fit:cover; border-radius: 50%; width:15%; height:15%;">
                         <div class="menu-content">
                             <a href="#">' . $row['nome'] . '</a><span>' . $row['preco'] . '€</span>
                         </div><br>
@@ -213,16 +204,16 @@
               <input type="text" name="name" class="form-control" id="nome" placeholder="Nome" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+            <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0">
               <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" required>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3 mt-md-0">
+            <div class="col-lg-3 col-md-6 form-group mt-3 mt-md-0">
               <input type="tel" class="form-control" name="phone" id="telemovel" placeholder="Telemóvel" data-rule="minlen:4" required>
               <div class="validate"></div>
             </div>
             <br><br>
-            <div class="text-center">
+            <div class="text-center col-lg-2 col-md-6 form-group mt-3 mt-md-0">
               <button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex" id="botao">Registar</button>
             </div>
         <br>
@@ -260,26 +251,30 @@
         <form method="post">
           <div class="row">
            
-            <div class="col-lg-4 col-md-6 form-group">
+            <div class="col-lg-3 col-md-6 form-group">
               <input type="email" class="form-control" name="email" id="email" placeholder="Email" data-rule="email" required>
               <div class="validate"></div>
             </div>
             
-             <div class="col-lg-4 col-md-6 form-group">
+             <div class="col-lg-2 col-md-6 form-group">
               <input type="date" name="date" class="form-control" id="calendario" min="2021-02-01" max="2100-04-30" placeholder="data" required>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-md-0">
-              <input type="text" class="form-control" name="refeicao" id="refeicao" placeholder="Almoço/Jantar" data-rule="" required>
+            <div class="col-lg-3 col-md-6 form-group mt-md-0">
+              <select name="refeicao" class="form-control">
+                <option value="">Escolha o horário da sua refeição</option>
+                <option value="Almoço">Almoço</option>
+                <option value="Jantar">Jantar</option>
+              </select>
               <div class="validate"></div>
             </div>
-            <div class="col-lg-4 col-md-6 form-group mt-3">
+            <div class="col-lg-2 col-md-6 form-group">
               <input type="number" class="form-control" name="pessoas" id="pessoas" placeholder="Numero de Pessoas" data-rule="minlen:1" required>
               <div class="validate"></div>
             </div>
           <br><br><br>
         
-          <div class="text-center"><button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex" id="botao">Reservar</button></div>
+          <div class="text-center col-lg-2 col-md-6 form-group"><button type="submit" class="book-a-table-btn scrollto d-none d-lg-flex" id="botao">Reservar</button></div>
 
         </form>
       </div>

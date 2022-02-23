@@ -2,8 +2,10 @@
 <html lang="pt">
 
 <head>
+  <script src="https://kit.fontawesome.com/eebc17c0bc.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
 
   <title>Reservas</title>
   <meta content="" name="description">
@@ -69,11 +71,32 @@
     $result = mysqli_query($conexao, $query);
 
     if(mysqli_num_rows($result)>0){
-        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Data da reserva</th><th>Refeição</th><th>Lugares</th><th>Id cliente</th></tr>" ;
+        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Data da reserva</th><th>Refeição</th><th>Lugares</th><th>Id cliente<th>Ver</th><th>Remover</th><th>Editar</th></tr>" ;
         while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['data_ref']. "</td><td>" . $fila['refeicao']. "</td><td>" . $fila['lugares']. "</td><td>" . $fila['cliente_id']."</td></tr>";
-            echo "<br>";
-        } 
+            echo "<tr><td>" . $fila['id']. "</td><td>" . $fila['data_ref']. "</td><td>" . $fila['refeicao']. "</td><td>" . $fila['lugares']. "</td><td>" . $fila['cliente_id']. "</td>";
+            //echo "<br>";
+            echo "<td>
+                    <form method = 'post' action='detail_cliente.php'>
+                        <input name='id' value='",$fila['id'],"' hidden>
+                        <button class= 'btn btn-primary' type='submit' name='detail'><i class='fas fa-magnifying-glass'></i></button>
+                    </form>
+                  </td>
+                  <td>
+                    <form method = 'post' action='delete.php'>
+                        <input name='id' value='",$fila['id'],"' hidden>
+                        <button class= 'btn btn-primary' type='submit' name='detail'><i class='fas fa-delete-left'></i></button>
+                    </form>
+                  </td>
+                  <td>
+                    <form method = 'post' action='update.php'>
+                        <input name='id' value='",$fila['id'],"' hidden>
+                        <button class= 'btn btn-primary' type='submit' name='detail'><i class='fas fa-pen-to-square'></i></button>
+                    </form>
+                  </td></tr>";
+
+        }           
+
+
         echo"</table>";
     }
     else{
@@ -81,37 +104,6 @@
     }
    ?> 
   <!-- Fim Ficheiro PHP -->
-  <!-- Esboço de Tabela previamente usada -->
-  <!-- <table style="width:50%">
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Data</th>
-            <th>Refeição</th>
-            <th>Nº de pessoas</th><br>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Paulo Santos</td>
-            <td>11/02/2022</td>
-            <td>Almoço</td>
-            <td>3</td><br>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>Anabela Henriques</td>
-            <td>14/02/2022</td>
-            <td>Almoço</td>
-            <td>2</td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>António Damas</td>
-            <td>28/02/2022</td>
-            <td>Jantar</td>
-            <td>4</td>
-          </tr>
-      </table> -->
   <!-- ======= Rodapé ======= -->
   <footer id="footer">
     <div class="container">

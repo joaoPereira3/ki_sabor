@@ -2,10 +2,12 @@
 <html lang="pt">
 
 <head>
+  <script src="https://kit.fontawesome.com/eebc17c0bc.js" crossorigin="anonymous"></script>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Pratos</title>
+
+  <title>Reservas</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -27,7 +29,6 @@
 
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
-
 <body>
 
    <!-- ======= Cabeçalho ======= -->
@@ -40,8 +41,8 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="admin.php">Clientes Registados</a></li>
-          <li><a class="nav-link scrollto" href="reservas.php">Reservas</a></li>
-          <li><a class="nav-link scrollto" href="#">Pratos</a></li>
+          <li><a class="nav-link scrollto" href="#">Reservas</a></li>
+          <li><a class="nav-link scrollto" href="pratos.php">Pratos</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -53,47 +54,49 @@
     </div>
   </header><!-- Fim Cabeçalho -->
 
-  <main id="main">
+  <!-- Inicio Ficheiro PHP -->
+
+<?php
+
+include("conexao.php");
+
+$id = $_POST['id'] ?? "";
+
+
+$query = mysqli_query($conexao, "SELECT * FROM reservas WHERE id=$id");
+
+while($result = mysqli_fetch_array($query))
+{
+    $data = $result['data_ref'];
+    $ref = $result['refeicao'];
+    $lugares = $result['lugares'];
     
-    <section class="inner-page">
-      <div class="container">
-        <p></p>
-      </div>
-    </section>
+}
+?>
+<html>
+<body>
+    <h2><a href="reservas.php">Reservas</a></h2>
+    <form method="post" action="updateprocess.php">
+        <h3>Id: <?php echo $_POST['id']; ?></h3>
+        Data <br><input type="date" name="data" value="<?php echo $data;?>"><br><br>
+        Refeição <br><select name="refeicao" style="width:10%" ><br>
+                    <option value="<?php echo $ref;?>"><?php echo $ref;?></option>
+                    <?php 
+                    if($ref == "Almoço"){
+                        echo "<option value='Jantar'>Jantar</option>";
+                    } else{
+                        echo "<option value='Almoço'>Almoço</option>";
+                    }
+                    ?>
 
-  </main><!-- Fim Main -->
-  <!-- ======= Ficheiro PHP ======= -->
-  <?php
-    include("conexao.php");
+                </select><br>
+        Lugares <br>    <input type="number" name="lugares" value="<?php echo $lugares;?>"><br><br>
 
-    // $query = "SELECT * FROM pratos";
-    $query = "SELECT p.id id, p.nome nome, p.preco preco, p.imagem imagem, c.nome categoria 
-    FROM pratos AS p, categorias AS c 
-    WHERE p.cat_id=c.id";
+        <input type="hidden" name="id" value=<?php echo $_POST['id'];?> >
+        <button class= 'btn btn-primary' type='submit' name='detail'><i class="fa-solid fa-calendar-check"></i></button>
+    </form>
+ <!-- Fim Ficheiro PHP -->
 
-    $result = mysqli_query($conexao, $query);
-
-    if(mysqli_num_rows($result)>0){
-        echo "<table class='table table-striped table-dark'><tr><th>ID</th><th>Nome</th><th>Preço</th><th>Imagem</th><th>Categoria</th></tr>" ;
-        while($fila = mysqli_fetch_assoc($result)){
-            echo "<tr>
-                    <td>" . $fila['id']. "</td>
-                    <td>" . $fila['nome']. "</td>
-                    <td>" . $fila['preco']. "</td>
-                    <td><img class='media-object' src='data:image/jpeg;base64, " . base64_encode($fila['imagem']) .
-                    "' alt='img' style='object-fit:cover; border-radius: 50%; width:15%; height:15%;'></td>
-                    <td>" . $fila['categoria']. "</td>
-                  </tr>";
-            echo "<br>";
-        } 
-        echo"</table>";
-    }
-    else{
-        echo "A tabela ainda não tem qualquer resultado";
-    }
-   ?>
-   <!-- Fim Ficheiro PHP -->
-   
   <!-- ======= Rodapé ======= -->
   <footer id="footer">
     <div class="container">
@@ -121,4 +124,5 @@
   <script src="assets/js/main.js"></script>
 
 </body>
-</html>
+</html>        
+       

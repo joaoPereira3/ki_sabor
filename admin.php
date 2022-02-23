@@ -30,7 +30,8 @@
 
 <body>
    <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top d-flex align-items-cente">
+  <header id="header" class="fixed-top d-flex align-items-center
+  ">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
       <h1 class="logo me-auto me-lg-0"><a href="index.php">Ki-Sabor</a></h1>
@@ -44,24 +45,12 @@
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
-        <!-- <input type="text" placeholder="Username">
-        <input type="password" placeholder="Password">
-        <button class="btn btn-outline-success" type="submit" href="admin.html">Log in</button> -->
+        
         <a href="index.php" class="book-a-table-btn scrollto d-none d-lg-flex">Log off</a>
 
     </div>
   </header><!-- End Header -->
 
-  <main id="main">
-    <section class="inner-page">
-      <div class="container">
-        <p>
-  
-        </p>
-      </div>
-    </section>
-
-  </main><!-- Fim Secção Main -->
   <!-- ======= Ficheiro PHP ======= -->
   <?php
     include("conexao.php");
